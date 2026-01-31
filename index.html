@@ -5,29 +5,49 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Valentine?</title>
 <style>
+  /* Grundstil */
   body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    font-family: Arial, sans-serif;
-    background-color: #ffe6f0;
-    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Collage-Hintergrund */
+  body::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: 
+      url('IMG_1261.JPG'),
+      url('IMG_1411.jpeg'),
+      url('IMG_1424.JPG'),
+      url('IMG_1819.jpeg'),
+      url('IMG_2331.JPG'),
+      url('IMG_2339.JPG'),
+      url('IMG_3111.jpeg');
+    background-size: 33% 33%; /* macht eine 3x3 Art Collage */
+    background-repeat: no-repeat;
+    background-position: 
+      left top, center top, right top,
+      left center, center center, right center,
+      left bottom, center bottom, right bottom;
+    opacity: 0.3; /* leicht transparent, Text bleibt sichtbar */
+    z-index: -1; /* hinter alles legen */
   }
 
   h1 {
     font-size: 3em;
     color: #ff3366;
     margin-bottom: 30px;
-  }
-
-  img {
-    display: block;
-    margin: 0 auto 20px auto;
-    border-radius: 15px;
-    width: 250px;
-    height: auto;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
   }
 
   button {
@@ -38,6 +58,8 @@
     cursor: pointer;
     margin: 10px;
     transition: all 0.3s;
+    z-index: 1;
+    position: relative;
   }
 
   #yes {
@@ -49,21 +71,19 @@
     background-color: #ccc;
   }
 
-  /* Nachricht-Text */
   #message {
     font-size: 2em;
     color: #ff3366;
     margin-top: 30px;
+    z-index: 1;
+    position: relative;
   }
 </style>
 </head>
 <body>
-<img src="IMG_2339.JPG" alt="Cute Valentine Picture">
 <h1>Philipp, möchtest du mein Valentin sein? 🥰</h1>
 <button id="no">Nein 😢</button>
 <button id="yes">Auf jeden Fall 💖</button>
-
-<!-- Hier wird die Nachricht angezeigt -->
 <div id="message"></div>
 
 <script>
@@ -83,7 +103,7 @@ noButton.addEventListener('mouseover', () => {
 // "Yes"-Button zeigt Text und lässt "No" verschwinden
 yesButton.addEventListener('click', () => {
   message.textContent = "Yayyyy ❤️ Ich liebe dich mein Schatz! 🥺";
-  noButton.style.display = "none"; // "No"-Button verschwinden lassen
+  noButton.style.display = "none";
 });
 </script>
 </body>
