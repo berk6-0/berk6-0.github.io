@@ -80,9 +80,10 @@ noButton.addEventListener('mouseover', () => {
   noButton.style.top = y + 'px';
 });
 
-// "Yes"-Button zeigt Text direkt auf der Seite
+// "Yes"-Button zeigt Text und lässt "No" verschwinden
 yesButton.addEventListener('click', () => {
   message.textContent = "Yayyyy ❤️ Ich liebe dich mein Schatz! 🥺";
+  noButton.style.display = "none"; // "No"-Button verschwinden lassen
 });
 </script>
 </body>
