@@ -25,8 +25,8 @@
   img {
     display: block;
     margin: 0 auto 20px auto;
-    border-radius: 15px; /* optional rounded corners */
-    width: 250px; /* adjust size as needed */
+    border-radius: 15px;
+    width: 250px;
     height: auto;
   }
 
@@ -48,6 +48,13 @@
   #no {
     background-color: #ccc;
   }
+
+  /* Nachricht-Text */
+  #message {
+    font-size: 2em;
+    color: #ff3366;
+    margin-top: 30px;
+  }
 </style>
 </head>
 <body>
@@ -56,12 +63,16 @@
 <button id="no">Nein 😢</button>
 <button id="yes">Auf jeden Fall 💖</button>
 
+<!-- Hier wird die Nachricht angezeigt -->
+<div id="message"></div>
 
 <script>
 const noButton = document.getElementById('no');
+const yesButton = document.getElementById('yes');
+const message = document.getElementById('message');
 
+// "No"-Button weglaufen lassen
 noButton.addEventListener('mouseover', () => {
-  // Move the "No" button to a random position
   const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
   const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
   noButton.style.position = 'absolute';
@@ -69,8 +80,9 @@ noButton.addEventListener('mouseover', () => {
   noButton.style.top = y + 'px';
 });
 
-document.getElementById('yes').addEventListener('click', () => {
-  alert("Yayyyy❤️ Ich liebe dich mein Schatz!🥺");
+// "Yes"-Button zeigt Text direkt auf der Seite
+yesButton.addEventListener('click', () => {
+  message.textContent = "Yayyyy ❤️ Ich liebe dich mein Schatz! 🥺";
 });
 </script>
 </body>
