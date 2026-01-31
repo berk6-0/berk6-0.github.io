@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Valentine?</title>
 <style>
-  /* Grundstil */
   body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -15,39 +14,33 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: white;
-    position: relative;
     overflow: hidden;
+    position: relative;
   }
 
-  /* Collage-Hintergrund */
-  body::before {
-    content: "";
+  /* Collage Container */
+  .collage {
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-image: 
-      url('IMG_1261.JPG'),
-      url('IMG_1411.jpeg'),
-      url('IMG_1424.JPG'),
-      url('IMG_1819.jpeg'),
-      url('IMG_2331.JPG'),
-      url('IMG_2339.JPG'),
-      url('IMG_3111.jpeg');
-    background-size: 33% 33%; /* macht eine 3x3 Art Collage */
-    background-repeat: no-repeat;
-    background-position: 
-      left top, center top, right top,
-      left center, center center, right center,
-      left bottom, center bottom, right bottom;
-    opacity: 0.3; /* leicht transparent, Text bleibt sichtbar */
-    z-index: -1; /* hinter alles legen */
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    grid-template-rows: repeat(2, 1fr);    /* 2 rows */
+    z-index: -1;
   }
 
+  .collage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* crop to fit without stretching */
+    opacity: 0.3;        /* slight transparency */
+  }
+
+  /* Original heading and buttons */
   h1 {
     font-size: 3em;
     color: #ff3366;
     margin-bottom: 30px;
-    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
   }
 
   button {
@@ -58,8 +51,8 @@
     cursor: pointer;
     margin: 10px;
     transition: all 0.3s;
-    z-index: 1;
     position: relative;
+    z-index: 1;
   }
 
   #yes {
@@ -75,12 +68,25 @@
     font-size: 2em;
     color: #ff3366;
     margin-top: 30px;
-    z-index: 1;
     position: relative;
+    z-index: 1;
   }
 </style>
 </head>
 <body>
+
+<!-- Collage grid -->
+<div class="collage">
+  <img src="IMG_1261.JPG" alt="">
+  <img src="IMG_1411.jpeg" alt="">
+  <img src="IMG_1424.JPG" alt="">
+  <img src="IMG_1819.jpeg" alt="">
+  <img src="IMG_2331.JPG" alt="">
+  <img src="IMG_2339.JPG" alt="">
+  <img src="IMG_3111.jpeg" alt="">
+  <img src="IMG_2287.jpeg" alt="">
+</div>
+
 <h1>Philipp, möchtest du mein Valentin sein? 🥰</h1>
 <button id="no">Nein 😢</button>
 <button id="yes">Auf jeden Fall 💖</button>
