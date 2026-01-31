@@ -32,11 +32,11 @@
   .collage img {
     width: 100%;
     height: 100%;
-    object-fit: cover;   /* crop to fit without stretching */
-    opacity: 0.3;        /* slight transparency */
+    object-fit: cover;   
+    opacity: 0.3;       
+    filter: grayscale(100%); /* black and white */
   }
 
-  /* Original heading and buttons */
   h1 {
     font-size: 3em;
     color: #ff3366;
@@ -75,7 +75,6 @@
 </head>
 <body>
 
-<!-- Collage grid -->
 <div class="collage">
   <img src="IMG_1261.JPG" alt="">
   <img src="IMG_1411.jpeg" alt="">
@@ -97,7 +96,6 @@ const noButton = document.getElementById('no');
 const yesButton = document.getElementById('yes');
 const message = document.getElementById('message');
 
-// "No"-Button weglaufen lassen
 noButton.addEventListener('mouseover', () => {
   const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
   const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
@@ -106,7 +104,6 @@ noButton.addEventListener('mouseover', () => {
   noButton.style.top = y + 'px';
 });
 
-// "Yes"-Button zeigt Text und lässt "No" verschwinden
 yesButton.addEventListener('click', () => {
   message.textContent = "Yayyyy ❤️ Ich liebe dich mein Schatz! 🥺";
   noButton.style.display = "none";
